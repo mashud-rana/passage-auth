@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Routes, Route } from 'react-router-dom';
+
+import Home from "./views/Home";
+import Dashboard from "./views/Dashboard";
+import Banner from "./components/banner";
+import styles from './App.module.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+            <Banner/>
+            <div className={styles.mainContainer}>
+                <Routes>
+                    <Route path="/" element={<Home/>}></Route>
+                    <Route path="/dashboard" element={<Dashboard/>}></Route>
+                </Routes>
+            </div>
+            <div className={styles.footer}>
+                Learn more with our <a href="https://docs.passage.id">Documentation</a> and <a href="https://github.com/passageidentity">Github</a>.      
+            </div>
+      </div>
   );
 }
 
